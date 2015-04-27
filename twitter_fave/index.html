@@ -1,0 +1,31 @@
+<html>
+  <head>
+
+    <style>
+    .fave {
+      width: 70px;
+      height: 50px;
+      background: url(images/twitter_fave.png) no-repeat;
+      background-position: 0 0;
+      cursor: pointer;
+      animation: fave 2s steps(55);
+    }
+    .fave:hover {
+      background-position: -3519px 0;
+      transition: background 2s steps(55);
+    }
+    @keyframes fave {
+      0% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: -3519px 0;
+      }
+    }
+    </style>
+  </head>
+  <body>
+    <section class="fave"></section>
+
+  </body>
+</html>

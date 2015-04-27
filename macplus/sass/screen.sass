@@ -1,0 +1,297 @@
+@import compass/reset
+@import compass/css3
+@import mixins
+
+/* Variables */
+$colour: #fff
+
+/* Fallback for older browsers */
+.stage
+  display: none
+.csstransforms3d .stage
+  display: block
+.fallback-stage
+  width: 100%
+  height: 600px
+  background: url(../images/fallback.png) no-repeat center
+.csstransforms3d .fallback-stage
+  display: none
+
+
+
+body
+  background-color: #eee9e6
+  font-size: 34px
+
+.stage
+  width: 100%
+  height: 700px
+  
+  position: relative
+  +perspective(1600px)
+  +perspective-origin(50% 100px)
+  +background(linear-gradient(top, #131c2d, #131c2d 40%, #b1b5b8 40%, #eee9e6))
+
+.positioning
+  position: absolute
+  width: 9em
+  top: 3em
+  left: 50%
+  margin-left: -4.5em
+  +transform-style(preserve-3d)
+
+  &.animated
+    +animation(back-and-forth 14s ease-in-out infinite)
+
+  &.two
+    +transform(translateX(14em) translateZ(-10em) rotateY(30deg))
+
+  &.three
+    +transform(translateX(-14em) translateZ(-10em) rotateY(10deg))
+
+/* 13.6 x 9.6 x 10.9
+
+.mac
+  width: 12em
+  height: 10em
+  margin: 0 auto
+  +transform-style(preserve-3d)
+  +transform(rotateY(-20deg))
+
+  figure, span
+    display: block
+    position: absolute
+    +backface-visibility(hidden)
+    opacity: 1
+
+  .front
+    height: 11.5em
+    width: 9.6em
+    background: darken($colour, 12%)
+    +transform(rotateX(5deg) translateZ(5.43em))
+
+    .bezel-top
+      border-top: 0.75em solid darken($colour, 5%)
+      border-right: 0.5em solid transparent
+      border-left: 0.5em solid transparent
+      width: 8.6em
+
+    .bezel-left
+      border-top: 0.5em solid darken($colour, 15%)
+      border-right: 0.75em solid transparent
+      border-left: 0.75em solid transparent
+      width: 10em
+      +transform(rotateZ(-90deg) translateX(-5.5em) translateY(-5.5em))
+
+    .bezel-right
+      border-top: 0.5em solid darken($colour, 17%)
+      border-right: 0.75em solid transparent
+      border-left: 0.75em solid transparent
+      width: 10em
+      +transform(rotateZ(90deg) translateX(5.5em) translateY(-3.62em))
+
+    .bezel-bottom
+      border-top: 0.75em solid darken($colour, 20%)
+      border-right: 0.5em solid transparent
+      border-left: 0.5em solid transparent
+      width: 8.65em
+      +transform(rotateZ(180deg) translateY(-10.76em))
+
+    .screen-container
+      width: 6.25em
+      height: 4.8em
+      background: darken($colour, 24%)
+      +background(linear-gradient(top, darken($colour, 30%), darken($colour, 20%) 4%, darken($colour, 20%) 96%, darken($colour, 35%)))
+      border-radius: 0.1em
+      padding: 0.5em
+      +transform(translate3d(1.15em, 1.5em, 0))
+
+      .screen
+        display: block
+        position: absolute
+        left: 0.25em
+        top: 0.25em
+        background: #657374
+        border: 0.25em solid #657374
+        width: 6.25em
+        height: 4.75em
+        border-radius: 0.25em
+        overflow: hidden
+
+        img
+          width: 100%
+          height: 100%
+          border-radius: 0.1em
+
+        p
+          color: #00c317
+          font-family: monospace, prestige 
+          font-size: 0.4em
+
+          &:before
+            content: "> "
+
+          &:after
+            content: " |"
+            +animation(flash 1.5s infinite linear)
+
+      .sheen
+        display: block
+        position: absolute
+        top: 0
+        +background(linear-gradient(top right, rgba(255,255,255,0.03), rgba(255,255,255,0.06) 50%, transparent 50%, transparent))
+        width: 100%
+        height: 100%
+
+  .back
+    height: 11.5em
+    width: 9.6em
+    +background(linear-gradient(top, darken($colour, 5%), darken($colour, 10%) 0.25em, darken($colour, 24%)))
+    +transform(rotateX(5deg) translateZ(-5.45em) rotateY(180deg))
+
+  .top
+    height: 10.95em
+    width: 9.6em
+    background-color: #ebf0dc
+    +background(linear-gradient(left, darken($colour, 2%), darken($colour, 15%) 0.25em, darken($colour, 15%) 9.35em, darken($colour, 2%)))
+    +background(linear-gradient(top, darken($colour, 5%), darken($colour, 15%) 0.25em, darken($colour, 30%)))
+    +transform(rotateX(5deg) rotateX(90deg) translateZ(5.45em))
+
+  .left
+    height: 11.5em
+    width: 10.9em
+    +background(linear-gradient(top, darken($colour, 0%), darken($colour, 12%) 0.25em, darken($colour, 30%)))
+    +transform(rotateX(5deg) rotateY(-90deg) translateZ(5.45em))
+
+    &:after
+      content: ""
+      position: absolute
+      width: 8.9em
+      height: 1em
+      top: 11.4em
+      left: 0.5em
+      +transform(rotateZ(5deg))
+      +background(linear-gradient(top, rgba(100,100,100,0.8), rgba(100,100,100,0.8) 30%, transparent 30%, transparent))
+      background-size: 2em
+
+  .right
+    height: 11.5em
+    width: 10.9em
+    +background(linear-gradient(top, darken($colour, 0%), darken($colour, 12%) 0.25em, darken($colour, 30%)))
+    +transform(rotateX(5deg) rotateY(90deg) translateZ(4.14em))
+
+    &:after
+      content: ""
+      position: absolute
+      width: 8.9em
+      height: 1em
+      top: 11.4em
+      right: 0.5em
+      +transform(rotateZ(-5deg))
+      +background(linear-gradient(top, rgba(100,100,100,0.8), rgba(100,100,100,0.8) 30%, transparent 30%, transparent))
+      background-size: 2em
+
+  .base-front
+    height: 2.1em
+    width: 9.6em
+    background: darken($colour, 24%)
+    +transform(translateY(10.7em) translateZ(5em))
+
+    &:after
+      content: ""
+      display: block
+      width: 0.4em
+      height: 0.5em
+      position: absolute
+      top: 0.9em
+      right: 1em
+      background: #555
+      border-top: 0.1em solid darken($colour, 30%)
+      border-right: 0.2em solid darken($colour, 20%)
+      border-bottom: 0.1em solid darken($colour, 10%)
+      border-left: 0.2em solid darken($colour, 20%)
+      border-radius: 0.12em
+
+  .base-back
+    height: 2.1em
+    width: 9.6em
+    background: darken($colour, 30%)
+    +transform(translateY(10.7em) translateZ(-5em) rotateY(180deg))
+
+  .base-left
+    height: 2.1em
+    width: 10em
+    background: darken($colour, 30%)
+    +transform(translateY(10.7em) rotateY(-90deg) translateZ(4.99em))
+
+  .base-right
+    height: 2.1em
+    width: 10em
+    background: darken($colour, 30%)
+    +transform(translateY(10.7em) rotateY(90deg) translateZ(4.58em))
+
+  .logo
+    +transform(translateY(8.75em) translateX(1.25em))
+
+    span.image
+      display: block
+      position: absolute
+      width: 15px
+      height: 18px
+      left: 0
+      background: url(../images/bg/apple.png) no-repeat bottom
+      background-size: 100%
+
+    span.text
+      display: block
+      position: absolute
+      left: 2.5em
+      top: 0.6em
+      width: 10em
+      font-family: apple_garamondregular, "Garamond", "Times New Roman", Times, serif
+      font-size: 0.333em
+      color: #555
+      line-height: 0.8em
+
+  .floppy
+    height: 0.2em
+    width: 2.8em
+    +transform(translate3d(4.8em, 8.9em, 0))
+    background: #555
+    border-top: 0.1em solid darken($colour, 20%)
+    border-right: 0.3em solid darken($colour, 10%)
+    border-bottom: 0.1em solid darken($colour, 5%)
+    border-left: 0.3em solid darken($colour, 10%)
+    border-radius: 0.25em
+
+  .shadow
+    width: 10em
+    height: 11em
+    background: transparent
+    +transform(rotateX(90deg) translateZ(-7.4em) translateX(20em))
+    +box-shadow(-20.2em 0 1.8em rgba(100,90,100,0.4))
+
+
++keyframes(back-and-forth)
+  0%
+    @include transform(rotateY(40deg))
+  40%, 50%
+    @include transform(rotateY(-40deg))
+  90%, 100%
+    @include transform(rotateY(40deg))
+
++keyframes(flash)
+  0%
+    opacity: 0
+  49.9%
+    opacity: 0
+  50%, 100%
+    opacity: 1
+
+@font-face
+  font-family: 'apple_garamondregular'
+  src: url('../fonts/apple_garamond-webfont.eot')
+  src: url('../fonts/apple_garamond-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/apple_garamond-webfont.woff') format('woff'), url('../fonts/apple_garamond-webfont.ttf') format('truetype'), url('../fonts/apple_garamond-webfont.svg#apple_garamondregular') format('svg')
+  font-weight: normal
+  font-style: normal
+ 
