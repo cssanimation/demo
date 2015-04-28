@@ -5,7 +5,20 @@
   top: 1em;
 }
 
-span {
+body {
+  background: #fff;
+  font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #fff;
+  font-size: 24px;
+}
+
+.wwdc15 {
+  background: #fff;
+  font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #fff;
+  font-size: 24px;
+}
+.wwdc15 span {
   display: block;
   position: absolute;
   top: -webkit-calc(50% - 10em);
@@ -15,22 +28,18 @@ span {
   width: 20em;
   height: 20em;
 }
-
-span.spin {
+.wwdc15 span.spin {
   -webkit-animation: spin 10s linear infinite;
           animation: spin 10s linear infinite;
 }
-
-span.spin-reverse {
+.wwdc15 span.spin-reverse {
   -webkit-animation: spin 30s linear infinite;
           animation: spin 30s linear infinite;
 }
-
-span.pulse {
+.wwdc15 span.pulse {
   -webkit-animation: spin-pulse 20s linear infinite;
           animation: spin-pulse 20s linear infinite;
 }
-
 @-webkit-keyframes spin {
   0% {
     -webkit-transform: rotateZ(0);
@@ -41,7 +50,6 @@ span.pulse {
             transform: rotateZ(360deg);
   }
 }
-
 @keyframes spin {
   0% {
     -webkit-transform: rotateZ(0);
@@ -80,14 +88,7 @@ span.pulse {
             transform: scale(1) rotateZ(360deg);
   }
 }
-body {
-  background: #fff;
-  font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  color: #fff;
-  font-size: 24px;
-}
-
-.circle {
+.wwdc15 .circle {
   border-radius: 50%;
   left: -webkit-calc(50% - 6.25em);
   left: calc(50% - 6.25em);
@@ -97,24 +98,20 @@ body {
       -ms-transform-origin: 50% 12.5em;
           transform-origin: 50% 12.5em;
 }
-
-.squircle {
+.wwdc15 .squircle {
   border-radius: 25%;
 }
-
-.circle, .squircle {
+.wwdc15 .circle, .wwdc15 .squircle {
   width: 12.5em;
   height: 12.5em;
   position: absolute;
   border-top: 0.1em solid rgba(255, 255, 255, 0.4);
 }
-
-.large.circle {
+.wwdc15 .large.circle {
   -webkit-box-shadow: 0 1em 2em rgba(0, 0, 0, 0.5);
           box-shadow: 0 1em 2em rgba(0, 0, 0, 0.5);
 }
-
-.small {
+.wwdc15 .small {
   width: 4em;
   height: 4em;
   left: -webkit-calc(50% - 2em);
@@ -127,61 +124,52 @@ body {
   -webkit-box-shadow: 0 0.25em 0.5em rgba(0, 0, 0, 0.2);
           box-shadow: 0 0.25em 0.5em rgba(0, 0, 0, 0.2);
 }
-
-.one {
+.wwdc15 .one {
   background: rgba(16, 63, 236, 0.75);
   -webkit-transform: rotateZ(225deg);
           transform: rotateZ(225deg);
 }
-
-.two {
+.wwdc15 .two {
   background: rgba(37, 172, 162, 0.75);
   -webkit-transform: rotateZ(180deg);
           transform: rotateZ(180deg);
 }
-
-.three {
+.wwdc15 .three {
   background: rgba(233, 124, 32, 0.75);
   -webkit-transform: rotateZ(135deg);
           transform: rotateZ(135deg);
 }
-
-.four {
+.wwdc15 .four {
   background: rgba(235, 67, 35, 0.75);
   -webkit-transform: rotateZ(90deg);
           transform: rotateZ(90deg);
 }
-
-.five {
+.wwdc15 .five {
   background: rgba(190, 28, 65, 0.75);
   -webkit-transform: rotateZ(45deg);
           transform: rotateZ(45deg);
 }
-
-.six {
+.wwdc15 .six {
   background: rgba(208, 57, 159, 0.75);
   -webkit-transform: rotateZ(0);
           transform: rotateZ(0);
 }
-
-.seven {
+.wwdc15 .seven {
   background: rgba(150, 32, 198, 0.75);
   -webkit-transform: rotateZ(-45deg);
           transform: rotateZ(-45deg);
 }
-
-.eight {
+.wwdc15 .eight {
   background: rgba(95, 33, 203, 0.75);
   -webkit-transform: rotateZ(-90deg);
           transform: rotateZ(-90deg);
 }
-
-.small.squircle {
+.wwdc15 .small.squircle {
   background: none;
   -webkit-box-shadow: none;
           box-shadow: none;
 }
-.small.squircle::after {
+.wwdc15 .small.squircle::after {
   content: "";
   border-radius: 25%;
   width: 100%;
@@ -193,20 +181,19 @@ body {
   -webkit-box-shadow: -0.25em 0.25em 0.5em rgba(0, 0, 0, 0.2);
           box-shadow: -0.25em 0.25em 0.5em rgba(0, 0, 0, 0.2);
 }
-.small.squircle.two::after {
+.wwdc15 .small.squircle.two::after {
   background: rgba(37, 172, 162, 0.75);
 }
-.small.squircle.four::after {
+.wwdc15 .small.squircle.four::after {
   background: rgba(235, 67, 35, 0.75);
 }
-.small.squircle.six::after {
+.wwdc15 .small.squircle.six::after {
   background: rgba(208, 57, 159, 0.75);
 }
-.small.squircle.eight::after {
+.wwdc15 .small.squircle.eight::after {
   background: rgba(95, 33, 203, 0.75);
 }
-
-.large.squircle {
+.wwdc15 .large.squircle {
   position: absolute;
   background: rgba(30, 7, 66, 0.65);
   border: none;
@@ -220,20 +207,19 @@ body {
       -ms-transform: none;
           transform: none;
 }
-.large.squircle.one {
+.wwdc15 .large.squircle.one {
   -webkit-transform: rotateZ(45deg);
           transform: rotateZ(45deg);
 }
-
-.content {
+.wwdc15 .content {
   text-align: center;
 }
-.content svg {
+.wwdc15 .content svg {
   fill: #fff;
   width: 3em;
   margin: 1.25em auto 1em;
 }
-.content h1 {
+.wwdc15 .content h1 {
   font-weight: lighter;
   font-size: 1.75em;
   margin: 0.25em auto 1em;
