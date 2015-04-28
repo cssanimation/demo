@@ -13,7 +13,6 @@ body {
 }
 
 .wwdc15 {
-  background: #fff;
   font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #fff;
   font-size: 24px;
@@ -166,6 +165,7 @@ body {
 }
 .wwdc15 .small.squircle {
   background: none;
+  border: none;
   -webkit-box-shadow: none;
           box-shadow: none;
 }
