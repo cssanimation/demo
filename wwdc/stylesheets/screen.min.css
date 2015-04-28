@@ -82,8 +82,9 @@ span.pulse {
 }
 body {
   background: #fff;
-  font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sand-serif;
+  font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #fff;
+  font-size: 24px;
 }
 
 .circle {
@@ -241,11 +242,11 @@ body {
 
 .message {
   position: absolute;
-  left: 0;
+  left: 1em;
   bottom: 1em;
   right: 0;
-  color: #aaa;
-  text-align: center;
+  color: #222;
+  text-align: left;
 }
 .message a {
   text-decoration: none;
