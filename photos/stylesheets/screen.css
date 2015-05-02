@@ -1,0 +1,198 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline; }
+
+html {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle; }
+
+q, blockquote {
+  quotes: none; }
+  q:before, q:after, blockquote:before, blockquote:after {
+    content: "";
+    content: none; }
+
+a img {
+  border: none; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block; }
+
+body {
+  background: -moz-linear-gradient(top, #212123, #124469);
+  background: -o-linear-gradient(top, #212123, #124469);
+  background: -webkit-linear-gradient(top, #212123, #124469);
+  background: linear-gradient(to bottom, #212123, #124469); }
+
+h1 {
+  font-size: 96px;
+  color: white;
+  text-shadow: 0 0 32px #124469;
+  font-family: "Helvetica Neue", Helvetica, Arial, Sans-serif;
+  text-align: center;
+  margin-top: -18px; }
+
+.container {
+  background: white;
+  background-size: 100%;
+  border-radius: 80px;
+  width: 512px;
+  height: 512px;
+  margin: 40px auto;
+  position: relative; }
+
+figure {
+  display: block;
+  width: 206px;
+  height: 134px;
+  opacity: 0.7;
+  border-radius: 162px;
+  position: absolute;
+  overflow: hidden;
+  top: 50%;
+  left: 35px;
+  margin-top: -67px;
+  -moz-transform-origin: 220px 50%;
+  -ms-transform-origin: 220px 50%;
+  -o-transform-origin: 220px 50%;
+  -webkit-transform-origin: 220px 50%;
+  transform-origin: 220px 50%; }
+  figure:after {
+    display: block;
+    content: " ";
+    background-color: black;
+    border-radius: 50%;
+    width: 72px;
+    height: 27px;
+    position: absolute;
+    left: 147px;
+    top: 97px;
+    -moz-transform: rotateZ(135deg);
+    -ms-transform: rotateZ(135deg);
+    -o-transform: rotateZ(135deg);
+    -webkit-transform: rotateZ(135deg);
+    transform: rotateZ(135deg); }
+  figure:nth-child(1) {
+    background: -moz-radial-gradient(left, #e88730, #ff8600);
+    background: -o-radial-gradient(left, #e88730, #ff8600);
+    background: -webkit-radial-gradient(left, #e88730, #ff8600);
+    background: radial-gradient(left, #e88730, #ff8600);
+    -moz-transform: rotateZ(90deg);
+    -ms-transform: rotateZ(90deg);
+    -o-transform: rotateZ(90deg);
+    -webkit-transform: rotateZ(90deg);
+    transform: rotateZ(90deg); }
+    figure:nth-child(1):after {
+      background-color: #1b0100; }
+  figure:nth-child(2) {
+    background: -moz-linear-gradient(left, #ffec1b, #e58221);
+    background: -o-linear-gradient(left, #ffec1b, #e58221);
+    background: -webkit-linear-gradient(left, #ffec1b, #e58221);
+    background: linear-gradient(to right, #ffec1b, #e58221);
+    -moz-transform: rotateZ(135deg);
+    -ms-transform: rotateZ(135deg);
+    -o-transform: rotateZ(135deg);
+    -webkit-transform: rotateZ(135deg);
+    transform: rotateZ(135deg); }
+    figure:nth-child(2):after {
+      background-color: #cf6c1e; }
+  figure:nth-child(3) {
+    background: -moz-linear-gradient(left, #b0c841, #5bb574);
+    background: -o-linear-gradient(left, #b0c841, #5bb574);
+    background: -webkit-linear-gradient(left, #b0c841, #5bb574);
+    background: linear-gradient(to right, #b0c841, #5bb574);
+    -moz-transform: rotateZ(180deg);
+    -ms-transform: rotateZ(180deg);
+    -o-transform: rotateZ(180deg);
+    -webkit-transform: rotateZ(180deg);
+    transform: rotateZ(180deg); }
+    figure:nth-child(3):after {
+      background-color: #658119; }
+  figure:nth-child(4) {
+    background: -moz-linear-gradient(left, #38ca7f, #39dd7a);
+    background: -o-linear-gradient(left, #38ca7f, #39dd7a);
+    background: -webkit-linear-gradient(left, #38ca7f, #39dd7a);
+    background: linear-gradient(to right, #38ca7f, #39dd7a);
+    -moz-transform: rotateZ(225deg);
+    -ms-transform: rotateZ(225deg);
+    -o-transform: rotateZ(225deg);
+    -webkit-transform: rotateZ(225deg);
+    transform: rotateZ(225deg); }
+    figure:nth-child(4):after {
+      background-color: #26571a; }
+  figure:nth-child(5) {
+    background: -moz-linear-gradient(left, #3577e5, #5331a1);
+    background: -o-linear-gradient(left, #3577e5, #5331a1);
+    background: -webkit-linear-gradient(left, #3577e5, #5331a1);
+    background: linear-gradient(to right, #3577e5, #5331a1);
+    -moz-transform: rotateZ(270deg);
+    -ms-transform: rotateZ(270deg);
+    -o-transform: rotateZ(270deg);
+    -webkit-transform: rotateZ(270deg);
+    transform: rotateZ(270deg); }
+    figure:nth-child(5):after {
+      background-color: #023a26; }
+  figure:nth-child(6) {
+    background: -moz-linear-gradient(left, #9d7fc5, #6028fb);
+    background: -o-linear-gradient(left, #9d7fc5, #6028fb);
+    background: -webkit-linear-gradient(left, #9d7fc5, #6028fb);
+    background: linear-gradient(to right, #9d7fc5, #6028fb);
+    -moz-transform: rotateZ(315deg);
+    -ms-transform: rotateZ(315deg);
+    -o-transform: rotateZ(315deg);
+    -webkit-transform: rotateZ(315deg);
+    transform: rotateZ(315deg); }
+    figure:nth-child(6):after {
+      background-color: #001257; }
+  figure:nth-child(7) {
+    background: -moz-radial-gradient(left, #db83d4, #ff00b0);
+    background: -o-radial-gradient(left, #db83d4, #ff00b0);
+    background: -webkit-radial-gradient(left, #db83d4, #ff00b0);
+    background: radial-gradient(left, #db83d4, #ff00b0);
+    -moz-transform: rotateZ(0deg);
+    -ms-transform: rotateZ(0deg);
+    -o-transform: rotateZ(0deg);
+    -webkit-transform: rotateZ(0deg);
+    transform: rotateZ(0deg); }
+    figure:nth-child(7):after {
+      background-color: #640736; }
+  figure:nth-child(8) {
+    background: -moz-linear-gradient(left, #ff480a, #b83f03);
+    background: -o-linear-gradient(left, #ff480a, #b83f03);
+    background: -webkit-linear-gradient(left, #ff480a, #b83f03);
+    background: linear-gradient(to right, #ff480a, #b83f03);
+    -moz-transform: rotateZ(45deg);
+    -ms-transform: rotateZ(45deg);
+    -o-transform: rotateZ(45deg);
+    -webkit-transform: rotateZ(45deg);
+    transform: rotateZ(45deg); }
+    figure:nth-child(8):after {
+      background-color: #6a0404;
+      z-index: 100; }
