@@ -26,15 +26,15 @@ body {
     height: 20em;
   }
 
-  span.spin {
+  .large-circles {
     animation: spin 10s linear infinite;
   }
 
-  span.spin-reverse {
+  .small-shapes {
     animation: spin 30s linear infinite;
   }
 
-  span.pulse {
+  .content-squircle {
     animation: spin-pulse 20s linear infinite;
   }
 

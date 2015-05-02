@@ -27,15 +27,15 @@ body {
   width: 20em;
   height: 20em;
 }
-.wwdc15 span.spin {
+.wwdc15 .large-circles {
   -webkit-animation: spin 10s linear infinite;
           animation: spin 10s linear infinite;
 }
-.wwdc15 span.spin-reverse {
+.wwdc15 .small-shapes {
   -webkit-animation: spin 30s linear infinite;
           animation: spin 30s linear infinite;
 }
-.wwdc15 span.pulse {
+.wwdc15 .content-squircle {
   -webkit-animation: spin-pulse 20s linear infinite;
           animation: spin-pulse 20s linear infinite;
 }
