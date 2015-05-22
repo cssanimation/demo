@@ -4,16 +4,16 @@ body {
 .buffer {
   width: 20em;
   position: absolute;
-  top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%); }
+  top: 16em;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%); }
 
 .layer {
   fill: #4b4b4b;
-  -webkit-transition: all 1s ease-out;
-          transition: all 1s ease-out; }
+  -webkit-transition: all 21s ease-out;
+          transition: all 21s ease-out; }
 
 .loading .layer1 {
   -webkit-animation: 4s linear infinite;
@@ -32,6 +32,16 @@ body {
           animation: 4s linear infinite;
   -webkit-animation-name: cycle3;
           animation-name: cycle3; }
+
+h1 {
+  text-align: center;
+  color: #aaa;
+  font-family: Helvetica, Arial, Sans-serif;
+  margin: 2em 0 2em;
+  font-size: 1.5em; }
+
+a {
+  color: #999; }
 
 button {
   font-size: 1.25em;
@@ -57,47 +67,47 @@ button:focus {
 @-webkit-keyframes cycle1 {
   0%, 65% {
     fill: #b2b2b2; }
-  75%, 90% {
+  75%, 82% {
     fill: #4b4b4b; }
-  100% {
+  92%, 100% {
     fill: #b2b2b2; } }
 
 @keyframes cycle1 {
   0%, 65% {
     fill: #b2b2b2; }
-  75%, 90% {
+  75%, 82% {
     fill: #4b4b4b; }
-  100% {
+  92%, 100% {
     fill: #b2b2b2; } }
 
 @-webkit-keyframes cycle2 {
   0%, 40% {
     fill: #b2b2b2; }
-  50%, 88% {
+  50%, 86% {
     fill: #4b4b4b; }
-  98%, 100% {
+  96%, 100% {
     fill: #b2b2b2; } }
 
 @keyframes cycle2 {
   0%, 40% {
     fill: #b2b2b2; }
-  50%, 88% {
+  50%, 86% {
     fill: #4b4b4b; }
-  98%, 100% {
+  96%, 100% {
     fill: #b2b2b2; } }
 
 @-webkit-keyframes cycle3 {
   0%, 15% {
     fill: #b2b2b2; }
-  25%, 86% {
+  25%, 90% {
     fill: #4b4b4b; }
-  96%, 100% {
+  100% {
     fill: #b2b2b2; } }
 
 @keyframes cycle3 {
   0%, 15% {
     fill: #b2b2b2; }
-  25%, 86% {
+  25%, 90% {
     fill: #4b4b4b; }
-  96%, 100% {
+  100% {
     fill: #b2b2b2; } }
