@@ -5,18 +5,90 @@ body {
 
 .buffer {
   width: 20em;
-  height: 40em;
   position: absolute;
-  left: calc(50% - 10em);
-  top: calc(50% - 20em);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
-  span {
-    display: block;
-    position: absolute;
-    background: black;
-    width: 20em;
-    height: 20em;
+.layer {
+  fill: #4b4b4b;
+  transition: all 1s ease-out;
+}
+
+.loading {
+  .layer1 {
+    animation: 4s linear infinite;
+    animation-name: cycle1;
+  }
+
+  .layer2 {
+    animation: 4s linear infinite;
+    animation-name: cycle2;
+  }
+
+  .layer3 {
+    animation: 4s linear infinite;
+    animation-name: cycle3;
   }
 }
 
+$stop-button-color: #4ea493;
+$go-button-color: #4b4b4b;
 
+button {
+  font-size: 1.25em;
+  display: block;
+  margin: 1em auto;
+  border: none;
+  color: #fff;
+  padding: 1em 2em;
+  transition: all 0.4s ease-out;
+  background: $stop-button-color;
+  box-shadow: 0 0.4em 0 -0.2em darken($stop-button-color, 20%);
+}
+
+button.go {
+  background: $go-button-color;
+  box-shadow: 0 0.4em 0 -0.2em darken($go-button-color, 20%);
+}
+
+button:focus {
+  outline: none;
+}
+
+@keyframes cycle1 {
+  0%, 65% {
+    fill: #b2b2b2;
+  }
+  75%, 90% {
+    fill: #4b4b4b;
+  }
+  100% {
+    fill: #b2b2b2;
+  }
+}
+
+@keyframes cycle2 {
+  0%, 40% {
+    fill: #b2b2b2;
+  }
+  50%, 88% {
+    fill: #4b4b4b;
+  }
+  98%, 100% {
+    fill: #b2b2b2;
+  }
+}
+
+@keyframes cycle3 {
+  0%, 15% {
+    fill: #b2b2b2;
+  }
+  25%, 86% {
+    fill: #4b4b4b;
+  }
+  96%, 100% {
+    fill: #b2b2b2;
+  }
+}
