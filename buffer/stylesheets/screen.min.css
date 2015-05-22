@@ -33,12 +33,17 @@ body {
   -webkit-animation-name: cycle3;
           animation-name: cycle3; }
 
+body {
+  font-family: Helvetica, Arial, Sans-serif; }
+
 h1 {
   text-align: center;
   color: #aaa;
-  font-family: Helvetica, Arial, Sans-serif;
   margin: 2em 0 2em;
   font-size: 1.5em; }
+
+p {
+  text-align: center; }
 
 a {
   color: #999; }
