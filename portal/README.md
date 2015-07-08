@@ -2,13 +2,13 @@
 
 A CSS/HTML implementation of a scene from the original Portal orientation video. 
 
-<img src="http://hop.ie/images/posts/portal/dude2.png" />
+<img src="https://cssanimation.rocks/assets/images/posts/portal/dude2.png" />
 
 ## Live demo
 
-See the [Portal CSS demo](http://hop.ie/portal/).
+See the [Portal CSS demo](https://cssanimation.rocks/demo/portal/).
 
 ## Read how it's done
 
-Read all about it [on the Hop.ie blog](http://hop.ie/blog/portal/).
+Read all about it [on CSS Animation Rocks](https://cssanimation.rocks/portal/).
 
