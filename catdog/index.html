@@ -1,0 +1,176 @@
+<html>
+
+  <head>
+    <title>Cat Dog</title>
+  </head>
+
+  <body>
+
+    <h1>Cat -> Dog</h1>
+
+    <script src="dictionary.js"></script>
+    <script>
+      /*
+      Write some code that will, given a word, e.g. dog, and another word, e.g. cat, will output a sequence of valid words (in a dictionary), where each pair of adjacent words are only different by 1 character. e.g. dog -> dot -> cot -> cat. If you can, also output the entire list of all such paths between two words.
+      */
+
+      // Method 2: Increment each letter through all possibilities, noting when it creates a new word, then create a thread from it
+
+      // var dictionary = [
+      //   'cat', 'fat', 'eat', 'cot', 'cop', 'car', 'tar', 'dot', 'dog'
+      // ];
+      var dictionary = ['too','toe','for','yak','uey','ate','boy','his','her','pom','qua','air','all','ant','any','arm','art','was','wax','son','bee','non','car','hot','not','men','rue','how','dye','rat','tan','lob','hut','pen','tin','gun','gay','ray','egg','dub','del','god','bad','bam','ban','bap','bat','bed','cry','eye','zak','beg','bel','ben','ear','leg','axe','hay','ail','law','lam','pin','oil','foe','ilk','bet','bid','cut','dig','dug','did','eat','fed','fit','fly','get','got','had','hid','hit','lay','led','let','lie','lit','met','bog','rod','mal','sic','oar','bug','why','mow','bra','sin','bag','pay','put','rid','run','ran','saw','set','sew','sit','sat','wed','wet','won','era','bib','sot','box','act','ven','ice','dry','end','jay','tit','pig','fox','ram','nit','rim','rom','sap','low','far','old','fog','ash','wow','lil','sal','key','jew','nut','dew','ewe','pet','ebb','ore','gem','kin','yon','pub','mop','hem','jeg','han','hun','ile','wee','cwm','las','hey','abc','aha','sea','ham','jag','due','cop','rot','sir','dud','elf','eve','nil','obi','duo','moo','cor','con','eta','xxx','dag','dam','dal','wok','fag','bus','sex','emu','pot','nah','tar','vat','pan','wan','gut','rho','jet','alb','own','pop','way','bow','ply','net','jib','flu','gnu','bar','zoo','pun','pat','tap','vid','tau','phi','chi','psi','fan','lad','lao','wat','tie','ohm','lux','kim','gym','eel','ach','ser','arc','fat','lip','ape','tea','cos','don','awe','dis','yaw','jaw','paw','cub','yam','mug','tod','cot','ink','raw','poo','log','lug','aal','rex','nix','ska','row','luo','gab','loo','sum','wen','joy','via','lex','top','wag','ton','neu','rad','rob','doh','fah','soh','lah','nee','eth','job','per','edh','lid','gar','sow','cob','hop','tom','tup','baa','wit','hen','doe','kip','foo','rub',
+    'gry'
+    ]
+    var alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+      console.log(cat2DogAllPaths('cat', 'dog'));
+
+
+
+      function findPossibilities(word, exclude) {
+        // Exclude is an array of words to not count as a possibility
+        var possibilities = [];
+        // Try each letter in the word
+        for (var letter = 0; letter < word.length; letter++) {
+          // For each new letter, reset the original word
+          var wordArray = word.split('');
+          for (var i = 0; i < 26; i++) {
+            wordArray[letter] = alphabet[i];
+            newword = wordArray.join('');
+            if (dictionary.indexOf(newword) > -1 && exclude.indexOf(newword) == -1) {
+              possibilities.push(newword);
+            }
+          }
+        }
+        return possibilities;
+      }
+
+      // Think of the ideal structure the words should have
+      /*
+      Paths = [
+        ['cat', 'cot', 'dot', 'dog'],
+        ['cat', 'cot', 'cop'],
+        ['cat', 'car', 'tar']
+      ]
+      Step through a path:
+      .
+      . While this array is not empty...
+      .
+      . Get all possibilites for that word (cot, car)
+      . If the possibility is the target, push this path onto the winners array
+      . If no possibilities, remove the current index array from in-progress
+      . For each possibility, if the possibility is not already in the path
+         create a new array of words with the initial array and the possibility
+      . Push onto the in-progress array, remove the current index array
+      . Once the in-progress path is empth, return the winners
+      */
+
+      function cat2DogAllPaths(word, target) {
+        // Set up a "in-progress" paths array with the initial word ['cat'], and a "winners" array
+        var inProgress = [], startingArray = [];
+        var failedPaths = [];
+        startingArray.push(word);
+        inProgress.push(startingArray);
+        var winners = [];
+        while(inProgress.length > 0) {
+          var currentPath = inProgress[0];
+          inProgress.splice(0, 1);
+          var wordToCheck = currentPath[currentPath.length - 1];
+          var possibilities = findPossibilities(
+            wordToCheck,
+            currentPath
+          );
+          if (possibilities.length) {
+            for (var i = 0; i < possibilities.length; i++) {
+              if (possibilities[i] == target) {
+                // Got a win, move this path to the winners array
+                currentPath.push(possibilities[i]);
+                winners.push(currentPath);
+              } else {
+                // Add to the path and push to in-progress
+                var newPath = currentPath.slice(0);
+                newPath.push(possibilities[i]);
+                inProgress.push(newPath);
+              }
+            }
+          } else {
+            failedPaths.push(currentPath);
+          }
+        }
+        return {winners, failedPaths};
+      }
+
+      // Method 1: Randomly replace a char with another letter and see if it makes a word
+      // Result: Pretty slow and inefficient
+
+      var startingHardLimit = 100000; // How many times it'll go before giving up entirely
+      var softLimit = 1000; // How many times it will keep going when it can't find a real word
+      //console.log(cat2DogRandom('cat', 'dog'));
+
+      function cat2DogRandom(word, target) {
+        var alphabetIndex = 0;
+        var routes = [];
+        var hardLimit = startingHardLimit;
+        while (hardLimit > 0) {
+          var history = [word];
+          var currentWord = word;
+          while(currentWord != target) {
+            if (softLimit == 0) {
+              // Restart from the top
+              history = [word];
+              currentWord = word;
+              softLimit = 100;
+            }
+            hardLimit--;
+            if (alphabetIndex < 25) {
+              alphabetIndex += 1;
+            } else {
+              alphabetIndex = 0;
+            }
+            // Pick a random letter to change
+            var letterIndex = Math.floor(Math.random() * 3);
+            // Split the word there and replace the letter
+            var newword = currentWord.split('');
+            newword[letterIndex] = alphabet[alphabetIndex];
+            newword = newword.join('');
+            if (dictionary.indexOf(newword) >= 0 && history.indexOf(newword) == -1) {
+              currentWord = newword;
+              history.push(newword);
+              softLimit = 100;
+            } else {
+              softLimit--;
+            }
+          }
+          // Only save the route if it's unique
+          // Bake it down to a string
+          // Store the word list as a string in the routes array
+          var historyString = history.toString();
+          if (routes.indexOf(historyString) == -1) {
+            routes.push(historyString);
+          }
+        }
+        console.log('Cycles: ' + (startingHardLimit - hardLimit));
+
+        // Sort the arrays
+        routes.sort(function (a, b) {
+          return a.length - b.length;
+        });
+        return {
+          winner: routes[0],
+          total: routes.length,
+          routes: routes
+        };
+      }
+
+    </script>
+
+  </body>
+</html>
+
+
+
+
+
+
+
+
