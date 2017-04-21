@@ -133,7 +133,8 @@ body {
 
 * {
   transition: transform 2.5s cubic-bezier(0,1.5,.4,1),
-              opacity .5s ease-out;
+              opacity .5s ease-out,
+              width: .5s ease-out;
 }
 
 @keyframes spin-moon {
