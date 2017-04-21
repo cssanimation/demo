@@ -62,7 +62,7 @@ body {
 }
 
 .moon {
-  animation: spin-moon 3s linear infinite;
+  animation: spin-moon 20s linear infinite;
   width: 50px;
   height: 50px;
   position: absolute;
@@ -132,9 +132,9 @@ body {
 /* Transitions */
 
 * {
-  transition: transform 2.5s cubic-bezier(0,1.5,.4,1),
+  transition: transform 5s cubic-bezier(0,1.5,.3,1),
               opacity .5s ease-out,
-              width: .5s ease-out;
+              width .5s ease-out;
 }
 
 @keyframes spin-moon {
