@@ -1,8 +1,7 @@
 body {
-  font-family: 'Space Mono', monospace;
   -webkit-font-smoothing: antialiased; }
 
-.header {
+.earth-demo {
   background: #000;
   position: absolute;
   top: 0;
@@ -11,7 +10,7 @@ body {
   left: 0;
   overflow: hidden; }
 
-.header:before {
+.earth-demo:before {
   background: url(https://cssanimation.rocks/images/random/space2.jpg) repeat center;
   background-size: cover;
   content: "";
@@ -46,55 +45,59 @@ body {
     .earth .more-info h1 {
       text-align: right; }
     .earth .more-info h1, .earth .more-info li {
+      font-family: 'Space Mono', monospace;
       opacity: 0; }
+
+.moon-container {
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 25px); }
 
 .moon {
   animation: spin-moon 20s linear infinite;
+  background: none;
   width: 50px;
   height: 50px;
-  position: absolute;
-  top: calc(50% - 25px);
-  left: calc(50% - 25px);
+  pointer-events: none;
   transform-origin: 25px;
   z-index: 0; }
   .moon img {
-    width: 50px;
-    transform: translateX(-200px) translateY(-200px); }
+    transform: translateX(-160px) translateY(-160px);
+    width: 50px; }
 
 .earth img, .moon img {
   border-radius: 50%;
   position: absolute;
   box-shadow: 0 0 12em 1em rgba(110, 140, 200, 0.6); }
 
-.earth:hover img {
+.earth:hover img, .earth.active img {
   transform: translateX(-75px) translateY(-75px) scale(0.5); }
 
-.earth:hover ~ .moon {
-  transform-origin: -50px -50px; }
-  .earth:hover ~ .moon img {
-    width: 25px;
-    transform: none; }
+.earth:hover ~ .moon-container, .earth.active ~ .moon-container {
+  transform: translateX(-75px) translateY(-75px) scale(0.4); }
+  .earth:hover ~ .moon-container img, .earth.active ~ .moon-container img {
+    transform: translateX(-140px) translateY(-140px); }
 
-.earth:hover .more-info {
+.earth:hover .more-info, .earth.active .more-info {
   opacity: 1;
   visibility: visible;
   transform: scale(1); }
-  .earth:hover .more-info h1 {
+  .earth:hover .more-info h1, .earth.active .more-info h1 {
     margin: 0 0 1em; }
-  .earth:hover .more-info h1, .earth:hover .more-info li {
+  .earth:hover .more-info h1, .earth:hover .more-info li, .earth.active .more-info h1, .earth.active .more-info li {
     opacity: 1; }
-  .earth:hover .more-info li:nth-child(1) {
+  .earth:hover .more-info li:nth-child(1), .earth.active .more-info li:nth-child(1) {
     transition-delay: 0s; }
-  .earth:hover .more-info li:nth-child(2) {
+  .earth:hover .more-info li:nth-child(2), .earth.active .more-info li:nth-child(2) {
     transition-delay: 0.2s; }
-  .earth:hover .more-info li:nth-child(3) {
+  .earth:hover .more-info li:nth-child(3), .earth.active .more-info li:nth-child(3) {
     transition-delay: 0.4s; }
-  .earth:hover .more-info li:nth-child(4) {
+  .earth:hover .more-info li:nth-child(4), .earth.active .more-info li:nth-child(4) {
     transition-delay: 0.6s; }
 
 /* Transitions */
 * {
-  transition: transform 5s cubic-bezier(0, 1.5, 0.3, 1), opacity 0.5s ease-out, width 0.5s ease-out; }
+  transition: transform 4s cubic-bezier(0, 1.5, 0.3, 1), opacity 0.5s ease-out, width 0.5s ease-out; }
 
 @keyframes spin-moon {
   to {

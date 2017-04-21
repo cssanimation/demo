@@ -1,10 +1,9 @@
 
 body {
-  font-family: 'Space Mono', monospace;
   -webkit-font-smoothing: antialiased;
 }
 
-.header {
+.earth-demo {
   background: #000;
   position: absolute;
     top: 0;
@@ -14,7 +13,7 @@ body {
   overflow: hidden;
 }
 
-.header:before {
+.earth-demo:before {
   background: url(https://cssanimation.rocks/images/random/space2.jpg) repeat center;
   background-size: cover;
   content: "";
@@ -56,24 +55,30 @@ body {
     }
 
     h1, li {
+      font-family: 'Space Mono', monospace;
       opacity: 0;
     }
   }
 }
 
-.moon {
-  animation: spin-moon 20s linear infinite;
-  width: 50px;
-  height: 50px;
+.moon-container {
   position: absolute;
     top: calc(50% - 25px);
     left: calc(50% - 25px);
+}
+
+.moon {
+  animation: spin-moon 20s linear infinite;
+  background: none;
+  width: 50px;
+  height: 50px;
+  pointer-events: none;
   transform-origin: 25px;
   z-index: 0;
 
   img {
+    transform: translateX(-160px) translateY(-160px);
     width: 50px;
-    transform: translateX(-200px) translateY(-200px);
   }
 }
 
@@ -83,18 +88,16 @@ body {
   box-shadow: 0 0 12em 1em rgba(110, 140, 200, .6);
 }
 
-.earth:hover {
-  
+.earth:hover, .earth.active {
+
   img {
     transform: translateX(-75px) translateY(-75px) scale(.5);
   }
 
-  ~ .moon {
-    transform-origin: -50px -50px;
-
+  ~ .moon-container {
+    transform: translateX(-75px) translateY(-75px) scale(.4);
     img {
-      width: 25px;
-      transform: none;
+      transform: translateX(-140px) translateY(-140px);
     }
   }
 
@@ -132,7 +135,7 @@ body {
 /* Transitions */
 
 * {
-  transition: transform 5s cubic-bezier(0,1.5,.3,1),
+  transition: transform 4s cubic-bezier(0,1.5,.3,1),
               opacity .5s ease-out,
               width .5s ease-out;
 }
