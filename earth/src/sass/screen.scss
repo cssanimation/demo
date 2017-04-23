@@ -46,11 +46,11 @@ body {
     padding: 1em;
     transform: scale(.8);
     transform-origin: 0 0;
-    visibility: hidden;
     width: 400px;
     z-index: 10;
 
     h1 {
+      margin: 0 0 1em;
       text-align: right;
     }
 
@@ -68,13 +68,12 @@ body {
 }
 
 .moon {
-  animation: spin-moon 20s linear infinite;
+  animation: spin 20s linear infinite;
   background: none;
   width: 50px;
   height: 50px;
   pointer-events: none;
   transform-origin: 25px;
-  z-index: 0;
 
   img {
     transform: translateX(-160px) translateY(-160px);
@@ -84,7 +83,6 @@ body {
 
 .earth img, .moon img {
   border-radius: 50%;
-  position: absolute;
   box-shadow: 0 0 12em 1em rgba(110, 140, 200, .6);
 }
 
@@ -103,12 +101,7 @@ body {
 
   .more-info {
     opacity: 1;
-    visibility: visible;
     transform: scale(1);
-
-    h1 {
-      margin: 0 0 1em;
-    }
 
     h1, li {
       opacity: 1;
@@ -140,7 +133,7 @@ body {
               width .5s ease-out;
 }
 
-@keyframes spin-moon {
+@keyframes spin {
   to {
     transform: rotateZ(360deg);
   }

@@ -39,10 +39,10 @@ body {
     padding: 1em;
     transform: scale(0.8);
     transform-origin: 0 0;
-    visibility: hidden;
     width: 400px;
     z-index: 10; }
     .earth .more-info h1 {
+      margin: 0 0 1em;
       text-align: right; }
     .earth .more-info h1, .earth .more-info li {
       font-family: 'Space Mono', monospace;
@@ -54,20 +54,18 @@ body {
   left: calc(50% - 25px); }
 
 .moon {
-  animation: spin-moon 20s linear infinite;
+  animation: spin 20s linear infinite;
   background: none;
   width: 50px;
   height: 50px;
   pointer-events: none;
-  transform-origin: 25px;
-  z-index: 0; }
+  transform-origin: 25px; }
   .moon img {
     transform: translateX(-160px) translateY(-160px);
     width: 50px; }
 
 .earth img, .moon img {
   border-radius: 50%;
-  position: absolute;
   box-shadow: 0 0 12em 1em rgba(110, 140, 200, 0.6); }
 
 .earth:hover img, .earth.active img {
@@ -80,10 +78,7 @@ body {
 
 .earth:hover .more-info, .earth.active .more-info {
   opacity: 1;
-  visibility: visible;
   transform: scale(1); }
-  .earth:hover .more-info h1, .earth.active .more-info h1 {
-    margin: 0 0 1em; }
   .earth:hover .more-info h1, .earth:hover .more-info li, .earth.active .more-info h1, .earth.active .more-info li {
     opacity: 1; }
   .earth:hover .more-info li:nth-child(1), .earth.active .more-info li:nth-child(1) {
@@ -99,6 +94,6 @@ body {
 * {
   transition: transform 4s cubic-bezier(0, 1.5, 0.3, 1), opacity 0.5s ease-out, width 0.5s ease-out; }
 
-@keyframes spin-moon {
+@keyframes spin {
   to {
     transform: rotateZ(360deg); } }
