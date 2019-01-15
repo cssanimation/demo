@@ -1,0 +1,171 @@
+<html>
+  <head>
+    <title>Generate business names</title>
+    <link href="https://fonts.googleapis.com/css?family=Frank+Ruhl+Libre|Rubik" rel="stylesheet">
+    <style>
+      /*
+        // Animations
+        // loading indicator
+        // loading transitions
+        // button activation animation
+        // show / hide text animations
+
+        // Useful: https://stackoverflow.com/a/53882402/274826
+        // Some ideas https://freefrontend.com/css-text-animations/
+      */
+
+      body {
+        transition: all 500ms ease-out;
+      }
+
+      .loading {
+        background: none;
+        opacity: 0;
+      }
+
+      .container {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: center;
+      }
+
+      .output {
+        margin: 40px;
+        min-height: 180px;
+      }
+
+      .output.light {
+        color: #fff;
+      }
+
+      .name {
+        font-family: Frank Ruhl Libre, serif;
+        font-size: 80px;
+        letter-spacing: -2px;
+        line-height: 88px;
+        margin-bottom: 20px;
+        opacity: 0;
+        transition: color 100ms 500ms ease-out;
+      }
+
+      .catchphrase {
+        font-family: Rubik, sans-serif;
+        font-size: 32px;
+        opacity: 0;
+        transition: color 100ms 500ms ease-out;
+      }
+
+      input[type=submit] {
+        background: rgba(255,255,255,0.5);
+        border-radius: 5px;
+        border: 5px solid rgba(0,0,0,0.05);
+        color: rgba(0,0,0,.5);
+        font-size: 24px;
+        padding: 16px 30px;
+      }
+
+      /* Animation styles for the text */
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+
+      @keyframes fadeOutUp {
+        from {
+          opacity: 1;
+          transform: none;
+        }
+        to {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+      }
+
+      .show .name {
+        animation: fadeInUp 500ms ease-out forwards;
+      }
+
+      .show .catchphrase {
+        animation: fadeInUp 500ms 500ms ease-out forwards;
+      }
+
+      .hide .name {
+        animation: fadeOutUp 500ms ease-out forwards;
+      }
+
+      .hide .catchphrase {
+        animation: fadeOutUp 500ms ease-out forwards;
+      }
+
+
+    </style>
+  </head>
+  <body class="loading">
+    <section class="container">
+    <section class="output" id="js-output"></section>
+    <section class="controls">
+      <input type="submit" value="Generate" id="js-generate">
+    </section>
+    </section>
+
+    <script src="./javascripts/faker.js" async></script>
+    <script>
+      // TODO: look into generating my own faker with limited parts
+
+      document.addEventListener('DOMContentLoaded', function() {
+        document.body.classList.remove('loading')
+        document.getElementById('js-generate').onclick = letsDoThis
+
+        letsDoThis()
+        function letsDoThis() {
+          const output = document.getElementById('js-output')
+          const {bg, text} = generateColours()
+          document.body.style.background = '#' + bg
+          output.classList.add('hide')
+          output.classList.remove('show')
+          document.getElementById('js-output').style.color = text
+          setTimeout(function() {
+            const text = generateTextObject()
+            output.innerHTML = makeHTML(text)
+            output.classList.add('show')
+            output.classList.remove('hide')
+          }, 500)
+        }
+      })
+
+      function generateColours() {
+        const bg = (Math.random()*(1<<24)|0).toString(16)
+        const rgb = parseInt(bg, 16)
+        const r = (rgb >> 16) & 0xff
+        const g = (rgb >>  8) & 0xff
+        const b = (rgb >>  0) & 0xff
+        const luma = 0.2126 * r + 0.7152 * g + 0.0722 * b
+        const text = luma < 90 ? 'white' : '#333'
+        return {
+          bg,
+          text
+        }
+      }
+
+      function generateTextObject() {
+        return {
+          name: faker.company.companyName(),
+          catchPhrase: faker.company.catchPhrase()
+        }
+      }
+
+      function makeHTML(text) {
+        return '<div class="text name">'+ text.name +'</div><div class="text catchphrase">'+ text.catchPhrase +'</div>'
+      }
+    </script>
+  </body>
+</html>
