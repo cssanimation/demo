@@ -1,0 +1,21 @@
+body {
+  -ms-animation: none;
+}
+
+.zelda-container {
+  -ms-animation: none;
+  animation: none;
+  background: url(http://hop.ie/images/posts/zelda.png) no-repeat;
+}
+
+.zelda-container * {
+  display: none;
+}
+
+.zelda-container:after {
+  content: "Sorry, brave Internet Explorer. This demo relies on 3D transforms that are not yet well supported in all browsers.";
+  color: #aaa;
+  font-size: 16px;
+  position: absolute;
+  bottom: -100px;
+}
